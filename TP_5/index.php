@@ -15,7 +15,7 @@ function XML_creator($rows)
     foreach ($rows as $row) {
 
       //ajout d'un noeud enfant au noeud racine
-      $node1 = $xml->addChild('Localite');
+      $node1 = $xml->addChild('localite');
       //ajout d'un noeud  pour chaque valeur
       $node1->addChild('npa_id', $row[0]);
       $node1->addChild('npa_localite', $row[2]);
@@ -133,8 +133,6 @@ if (isset($_POST['rechercher_ex2'])) {
     $rows = $stmt->fetchAll(PDO::FETCH_CLASS);
 
     JSON_creator($rows);
-
-
   } catch (Exception $e) {
     echo 'ERREUR: ' . $e->getMessage();
   }
